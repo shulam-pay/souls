@@ -1,0 +1,28 @@
+{
+  "name": "Shulam Souls",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/redis-server:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "cweijan.vscode-redis-client"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+  "postCreateCommand": "npm install",
+  "forwardPorts": [3000, 6379],
+  "portsAttributes": {
+    "3000": { "label": "Harness", "onAutoForward": "notify" },
+    "6379": { "label": "Redis", "onAutoForward": "silent" }
+  }
+}
